@@ -7,9 +7,10 @@ public class PlayerSideMovement : MonoBehaviour
     private LanesManager Lanes;
     private GameObject player;
     private int playerLane = 1;
-    private float playerStep = 10;
+    private float playerStep = 20;
+    private Vector3 startTouchPosition, endTouchPosition;
 
-    List<Vector3> playerLanes = new List<Vector3>();
+   List<Vector3> playerLanes = new List<Vector3>();
 
     void Start()
     {
@@ -23,24 +24,29 @@ public class PlayerSideMovement : MonoBehaviour
     
     void Update()
     {
-        // Player Go Left
-        if (playerLane == 1 || playerLane == 2)
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) { startTouchPosition = Input.GetTouch(0).position; }
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended || Input.anyKeyDown)
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.touchCount > 0) { endTouchPosition = Input.GetTouch(0).position; }
+
+            // Player Go Left
+            if (playerLane != 0)
             {
-                playerLane -= 1;
+                if (Input.GetKeyDown(KeyCode.A)||endTouchPosition.x < startTouchPosition.x)
+                {
+                    playerLane -= 1;
+                }
+            }
+
+            // Player Go Right
+            if (playerLane != (playerLanes.Count - 1))
+            {
+                if (Input.GetKeyDown(KeyCode.D)|| endTouchPosition.x > startTouchPosition.x)
+                {
+                    playerLane += 1;
+                }
             }
         }
-
-        // Player Go Right
-        if (playerLane == 0 || playerLane == 1)
-        {
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                playerLane += 1;
-            }
-        }
-
         // Set Player Position (While Moving)
         player.transform.position = Vector3.MoveTowards(player.transform.position, playerLanes[playerLane], playerStep * Time.deltaTime);
     }
