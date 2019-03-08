@@ -18,4 +18,5 @@ public class SoulShoot : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }

@@ -4,27 +4,42 @@ using UnityEngine;
 
 public class ScytheShoot : MonoBehaviour
 {
-    private GameObject BulletParentRight;
-    private GameObject BulletParentLeft;
-    public GameObject bulletprefab;
+    private LanesManager Lanes;
+    private PlayerSideMovement Player;
+    private GameObject player;
+    private int playerLane = 0;
+
+    private GameObject bulletprefab;
+
+    List<Vector3> playerLanes = new List<Vector3>();
 
     void Start()
     {
-        BulletParentLeft = GameObject.Find("LeftScythe");
-        BulletParentRight = GameObject.Find("RightScythe");
+        player = GameObject.Find("Player");
+        Lanes = player.GetComponent<LanesManager>();
+        Player = player.GetComponent<PlayerSideMovement>();
+        bulletprefab = Resources.Load("Bullet") as GameObject;
+        playerLanes = LanesManager.lanes;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+
+        playerLane = Player.playerLane;
+
+        if (playerLane != 0)
         {
-            var Bullet = Instantiate(bulletprefab, BulletParentLeft.transform.position, Quaternion.identity);
-            Bullet.transform.parent = BulletParentLeft.transform;
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                var Bullet = Instantiate(bulletprefab, playerLanes[playerLane - 1], Quaternion.identity);
+            }
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (playerLane != 2)
         {
-            var Bullet = Instantiate(bulletprefab, BulletParentRight.transform.position, Quaternion.identity);
-            Bullet.transform.parent = BulletParentRight.transform;
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                var Bullet = Instantiate(bulletprefab, playerLanes[playerLane + 1], Quaternion.identity);
+            }
         }
     }
 }

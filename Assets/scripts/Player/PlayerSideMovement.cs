@@ -6,7 +6,7 @@ public class PlayerSideMovement : MonoBehaviour
 {
     private LanesManager Lanes;
     private GameObject player;
-    private int playerLane = 1;
+    public int playerLane = 1;
     private float playerStep = 10;
 
     List<Vector3> playerLanes = new List<Vector3>();

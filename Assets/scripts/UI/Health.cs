@@ -99,9 +99,9 @@ public class Health : MonoBehaviour
             timer = 0;
         }
         
-        GameObject.Find("SoulScore").GetComponent<Text>().text = "" + AmountOfSouls;
-
         //Makes sure that the collected souls cap out at 10
         AmountOfSouls = AmountOfSouls >= MaxAmountOfSouls ? MaxAmountOfSouls : AmountOfSouls;
+
+        GameObject.Find("SoulScore").GetComponent<Text>().text = "" + AmountOfSouls;
     }
 }
