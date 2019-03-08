@@ -10,7 +10,7 @@ public class SoulShoot : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(0, BulletSpeed, 0);
+        transform.Translate(0, 0, BulletSpeed);
 
         timer += Time.deltaTime;
         if (timer >= 2)
