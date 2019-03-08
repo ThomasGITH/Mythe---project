@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ChangeLevel : MonoBehaviour
 {
-
     private GameObject[] list;
     private GameObject cam;
     private byte level = 0;
@@ -30,4 +29,5 @@ public class ChangeLevel : MonoBehaviour
             cam.transform.position = new Vector3(cam.transform.position.x + 630, cam.transform.position.y, cam.transform.position.z);
         }
     }
+
 }

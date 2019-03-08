@@ -16,7 +16,7 @@ public class PlayerSideMovement : MonoBehaviour
         //Get player / Get Positions & Set position 
         player = GameObject.Find("Player");
         Lanes = player.GetComponent<LanesManager>();
-        playerLanes = Lanes.lanes;
+        playerLanes = LanesManager.lanes;
         player.transform.position = playerLanes[1];
     }
 
