@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class LanesManager : MonoBehaviour
 {
-    public List<Vector3> lanes = new List<Vector3>();
+    public static List<Vector3> lanes = new List<Vector3>();
 
+    public Vector3 position = new Vector3(-10, -30, -69);
 
     void Awake()
     {
-
         // Adding Lanes Left / Middle / Right;
-        lanes.Add(new Vector3(-11.5f, -30, -69));
-        lanes.Add(new Vector3(-10, -30, -69));
-        lanes.Add(new Vector3(-8.5f, -30, -69));
-
+        lanes.Add(new Vector3(position.x - 1.5f, position.y, position.z));
+        lanes.Add(position);
+        lanes.Add(new Vector3(position.x + 1.5f, position.y, position.z));
     }
 
     void Update()
