@@ -45,15 +45,9 @@ public class Health : MonoBehaviour
     {
         //If the Player object collides with an object with that "Wrong soul" tag, it takes a life off, and starts the invincibility frames.
 
-        /*
-        if (col.gameObject.tag == "Wrong Soul" && Counter == 0)
-        {
-            Lives--;
-            Counter = 120;
-        }
-        */
+        
 
-        Color color = GetComponent<Renderer>().material.color;
+        Color color = currentColor;
         Color soulColor = col.GetComponent<Renderer>().material.color;
         if(col.gameObject.tag == "Soul")
         {
@@ -72,6 +66,8 @@ public class Health : MonoBehaviour
     }
 
     float timer;
+    Color currentColor;
+    bool flashUp = true;
 
     // Update is called once per frame
     void Update()
@@ -93,12 +89,42 @@ public class Health : MonoBehaviour
             Dead = true;
         }
 
-        if(timer >= 7)
+        if (timer > 7)
         {
-            changeCape();
-            timer = 0;
+            Color col = GetComponent<Renderer>().material.color;
+            float r = currentColor.r / 10;
+            float g = currentColor.g / 10;
+            float b = currentColor.b / 10;
+
+            if (col.r >= 1 && col.g >= 1 && col.b >= 1)
+            {
+                flashUp = false;
+            }
+            else if(col.r <= currentColor.r && col.g <= currentColor.g && col.b <= currentColor.b)
+            {
+                flashUp = true;
+            }
+
+            if(flashUp)
+            {
+                GetComponent<Renderer>().material.color = new Color(col.r + 0.05f, col.g + 0.05f, col.b + 0.05f);
+            }
+            else
+            {
+                GetComponent<Renderer>().material.color = new Color(col.r - 0.05f, col.g - 0.05f, col.b - 0.05f);
+            }
+
+            if (timer > 10 && col.r <= currentColor.r && col.g <= currentColor.g && col.b <= currentColor.b)
+            {
+                changeCape();
+                timer = 0;
+            }
         }
-        
+        else
+        {
+            currentColor = GetComponent<Renderer>().material.color;
+        }
+
         //Makes sure that the collected souls cap out at 10
         AmountOfSouls = AmountOfSouls >= MaxAmountOfSouls ? MaxAmountOfSouls : AmountOfSouls;
 
