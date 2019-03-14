@@ -7,7 +7,10 @@ public class PlayerSideMovement : MonoBehaviour
     private LanesManager Lanes;
     private GameObject player;
     public int playerLane = 1;
-    private float playerStep = 10;
+    private float playerStep = 200;
+    private Vector3 startTouchPosition, endTouchPosition;
+    private bool CanMove;
+
 
     List<Vector3> playerLanes = new List<Vector3>();
 
@@ -20,28 +23,44 @@ public class PlayerSideMovement : MonoBehaviour
         player.transform.position = playerLanes[1];
     }
 
-    
+
+
     void Update()
     {
-        // Player Go Left
-        if (playerLane == 1 || playerLane == 2)
-        {
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                playerLane -= 1;
-            }
-        }
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) {  startTouchPosition = Input.GetTouch(0).position; }
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended) { CanMove = true; }
 
-        // Player Go Right
-        if (playerLane == 0 || playerLane == 1)
+
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved && CanMove || Input.anyKeyDown)
         {
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Input.touchCount > 0) { endTouchPosition = Input.GetTouch(0).position; }
+
+
+            // Player Go Left
+            if (playerLane != 0)
             {
-                playerLane += 1;
+                if (Input.GetKeyDown(KeyCode.A) || endTouchPosition.x < startTouchPosition.x)
+                {
+                    playerLane -= 1;
+                    CanMove = false;
+
+                }
+            }
+
+            // Player Go Right
+            if (playerLane != (playerLanes.Count - 1))
+            {
+                if (Input.GetKeyDown(KeyCode.D) || endTouchPosition.x > startTouchPosition.x)
+                {
+                    playerLane += 1;
+                    CanMove = false;
+
+                }
             }
         }
 
         // Set Player Position (While Moving)
         player.transform.position = Vector3.MoveTowards(player.transform.position, playerLanes[playerLane], playerStep * Time.deltaTime);
     }
+
 }
