@@ -6,6 +6,7 @@ public class Soul : MonoBehaviour
 {
 
     float[] lanePositions;
+    public bool auto_position = true, auto_color = true;
 
     public enum Col
     {
@@ -14,31 +15,37 @@ public class Soul : MonoBehaviour
 
     void Start()
     {
-        Col color = (Col)Random.Range(0,3);
-        Color col = Color.white;
-
-        switch(color)
+        if (auto_color)
         {
-            case Col.RED :
-                col = Color.red;
-                break;
-            case Col.GREEN:
-                col = Color.green;
-                break;
-            case Col.BLUE:
-                col = Color.blue;
-                break;
+            Col color = (Col)Random.Range(0, 3);
+            Color col = Color.white;
+
+            switch (color)
+            {
+                case Col.RED:
+                    col = Color.red;
+                    break;
+                case Col.GREEN:
+                    col = Color.green;
+                    break;
+                case Col.BLUE:
+                    col = Color.blue;
+                    break;
+            }
+            GetComponent<Renderer>().material.color = col;
         }
-        GetComponent<Renderer>().material.color = col;
 
-        lanePositions = new float[3];
-
-        for(int i = 0; i < 3; i++)
+        if(auto_position)
         {
-            lanePositions[i] = LanesManager.lanes[i].x;
+            lanePositions = new float[3];
+
+            for (int i = 0; i < 3; i++)
+            {
+                lanePositions[i] = LanesManager.lanes[i].x;
+            }
+
+            transform.position = new Vector3(lanePositions[Random.Range(0, 3)], transform.position.y, transform.position.z);
         }
-        
-        transform.position = new Vector3(lanePositions[Random.Range(0, 3)], transform.position.y, transform.position.z);
     }
 
     private void Update()
@@ -50,5 +57,4 @@ public class Soul : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
 }
