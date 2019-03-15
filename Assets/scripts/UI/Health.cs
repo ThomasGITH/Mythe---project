@@ -66,7 +66,7 @@ public class Health : MonoBehaviour
     }
 
     float timer;
-    Color currentColor;
+    public Color currentColor;
     bool flashUp = true;
 
     // Update is called once per frame

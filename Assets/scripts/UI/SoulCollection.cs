@@ -25,10 +25,4 @@ public class SoulCollection : MonoBehaviour
             Converted = false;
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
