@@ -11,7 +11,6 @@ public class ScytheShoot : MonoBehaviour
     private int playerLane = 0;
     private int shootingLane;
 
-    [SerializeField]
     private int soulAmount;
     private int soulDamage;
 
@@ -22,6 +21,9 @@ public class ScytheShoot : MonoBehaviour
     private bool attackDelay = false;
     private float delayTimer = 0;
     private float maxdelayTimer = 0.5f;
+
+    private bool shotLeft = false;
+    private bool shotRight = false;
 
 
 
@@ -45,26 +47,15 @@ public class ScytheShoot : MonoBehaviour
         soulAmount = getSouls.AmountOfSouls;
         playerLane = Player.playerLane;
 
-        if (recharging == false && attackDelay == false && soulAmount != 0 )
-        {
-            if (playerLane != 0)
-            {
-                if (Input.GetKeyDown(KeyCode.Q))
-                {
-                    shootingLane = -1;
-                    attackDelay = true;
-                }
-            }
-            if (playerLane != 2)
-            {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    shootingLane = 1;
-                    attackDelay = true;
 
-                }
-            }
+        if (Input.GetKeyDown(KeyCode.Q)){
+            LeftShoot();
         }
+
+        if (Input.GetKeyDown(KeyCode.E)){
+            RightShoot();
+        }
+
 
         if (recharging == true)
         {
@@ -99,6 +90,33 @@ public class ScytheShoot : MonoBehaviour
         Bullet.GetComponent<SoulShoot>().damageSouls = soulDamage;
 
 
+    }
+
+
+    public void LeftShoot()
+    {
+        PlayerSideMovement.CanSwipe = false;
+        if (recharging == false && attackDelay == false && soulAmount != 0)
+        {
+            if (playerLane != 0)
+            {
+                shootingLane = -1;
+                attackDelay = true;
+            }
+        }
+    }
+
+   public void RightShoot()
+    {
+        PlayerSideMovement.CanSwipe = false;
+        if (recharging == false && attackDelay == false && soulAmount != 0)
+            {
+                if (playerLane != 2)
+                {
+                    shootingLane = 1;
+                    attackDelay = true;
+                }
+            }
     }
 
 }

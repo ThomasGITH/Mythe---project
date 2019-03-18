@@ -9,7 +9,7 @@ public class PlayerSideMovement : MonoBehaviour
     public int playerLane = 1;
     private float playerStep = 200;
     private Vector3 startTouchPosition, endTouchPosition;
-    private bool CanMove;
+    public static bool CanSwipe;
 
 
     List<Vector3> playerLanes = new List<Vector3>();
@@ -28,10 +28,10 @@ public class PlayerSideMovement : MonoBehaviour
     void Update()
     {
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) {  startTouchPosition = Input.GetTouch(0).position; }
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended) { CanMove = true; }
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended) { CanSwipe = true; }
 
 
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved && CanMove || Input.anyKeyDown)
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved && CanSwipe || Input.anyKeyDown)
         {
             if (Input.touchCount > 0) { endTouchPosition = Input.GetTouch(0).position; }
 
@@ -42,7 +42,7 @@ public class PlayerSideMovement : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.A) || endTouchPosition.x < startTouchPosition.x)
                 {
                     playerLane -= 1;
-                    CanMove = false;
+                    CanSwipe = false;
 
                 }
             }
@@ -53,7 +53,7 @@ public class PlayerSideMovement : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.D) || endTouchPosition.x > startTouchPosition.x)
                 {
                     playerLane += 1;
-                    CanMove = false;
+                    CanSwipe = false;
 
                 }
             }
