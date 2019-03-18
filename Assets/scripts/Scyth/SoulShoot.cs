@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class SoulShoot : MonoBehaviour
 {
@@ -8,36 +9,25 @@ public class SoulShoot : MonoBehaviour
     private float BulletSpeed = 0.50f;
     private int hitSouls = 3;
     public int damageSouls;
-    public int damageToBoss;
-    public int soulCounter;
+    public int bossDamageIncrease = 5;
     private int oneSouls = 2;
     private int twoSouls = 5;
     private int threeSouls = 8;
     private int maxSouls = 10;
+    [SerializeField]
+    private BossHealth boss;
 
 
-    private void Start()
-    {
-        
-    }
+
 
     void Update()
     {
         transform.Translate(0, 0, BulletSpeed);
+        boss = GameObject.Find("Portal").GetComponent<BossHealth>();
 
 
-    }
 
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        // Check collision with boss (CHANGE NAME LATER)
-        if (collision.gameObject.name == "Portal")
-        {
-            Destroy(this.gameObject);
-        }
-
-        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -45,19 +35,21 @@ public class SoulShoot : MonoBehaviour
         if (other.gameObject.tag == "Soul")
         {
             if (damageSouls <= oneSouls)
-            {                
+            {
                 Destroy(other.gameObject);
                 Destroy(this.gameObject);
-            } else 
+            }
+            else
             if (damageSouls <= twoSouls && damageSouls >= oneSouls)
-            {                
+            {
                 Destroy(other.gameObject);
                 hitSouls -= 1;
                 if (hitSouls == 1)
                 {
                     Destroy(this.gameObject);
                 }
-            } else
+            }
+            else
             if (damageSouls <= threeSouls && damageSouls >= twoSouls)
             {
                 Destroy(other.gameObject);
@@ -66,11 +58,20 @@ public class SoulShoot : MonoBehaviour
                 {
                     Destroy(this.gameObject);
                 }
-            } else
+            }
+            else
             if (damageSouls == maxSouls)
             {
                 Destroy(other.gameObject);
             }
         }
+
+        // Check collision with boss (CHANGE NAME LATER)
+        if (other.gameObject.tag == "Portal")
+        {
+            boss.TakeDamage(damageSouls * bossDamageIncrease);
+            Destroy(this.gameObject);
+        }
+
     }
 }

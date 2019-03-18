@@ -11,6 +11,7 @@ public class ScytheShoot : MonoBehaviour
     private int playerLane = 0;
     private int shootingLane;
 
+    [SerializeField]
     private int soulAmount;
     private int soulDamage;
 
@@ -96,7 +97,6 @@ public class ScytheShoot : MonoBehaviour
         recharging = true;
         GameObject Bullet = (GameObject)Instantiate(bulletprefab, playerLanes[playerLane + shootingLane], Quaternion.identity);
         Bullet.GetComponent<SoulShoot>().damageSouls = soulDamage;
-        Bullet.GetComponent<SoulShoot>().damageToBoss = soulDamage * 10;
 
 
     }

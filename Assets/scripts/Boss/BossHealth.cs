@@ -1,21 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 //Brandon Ruigrok
 public class BossHealth : MonoBehaviour
 {
+    [SerializeField]
     int Hp = 400;
 
-   // DamageOutput dmg;
+    public Action<int> BossTakingDamage;
 
-
-    private void OnTriggerEnter(Collider col)
+    public void TakeDamage(int damage)
     {
-    //    dmg = GameObject.Find("Scyth").GetComponent<DamageOutput>();
-        if (col.gameObject.tag == "Shot Soul")
+        Hp -= damage;
+
+        if (BossTakingDamage != null)
         {
-    //        Hp = (Hp - dmg.Damage);
+            BossTakingDamage(Hp);
         }
     }
 }
