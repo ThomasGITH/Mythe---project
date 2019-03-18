@@ -1,6 +1,6 @@
 # This file uses centimeters as units for non-parametric coordinates.
 
-mtllib helOBJ.mtl
+mtllib HELMIXAMO.mtl
 g default
 v 0.194602 1.303646 -0.164983
 v 0.337061 1.303646 -0.012750
