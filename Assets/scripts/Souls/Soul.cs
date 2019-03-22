@@ -51,6 +51,12 @@ public class Soul : MonoBehaviour
     private void Update()
     {
         transform.Translate(0,0,-0.55f);
+
+        if(transform.position.z < -75)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     private void OnBecameInvisible()
