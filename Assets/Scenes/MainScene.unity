@@ -523,7 +523,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &69156517
 Transform:
   m_ObjectHideFlags: 0
@@ -940,6 +940,7 @@ GameObject:
   - component: {fileID: 102306614}
   - component: {fileID: 102306613}
   - component: {fileID: 102306616}
+  - component: {fileID: 102306617}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1025,6 +1026,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossIsActive: 0
   boss: {fileID: 0}
+--- !u!114 &102306617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102306612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaa8ff42ad9c0f847a897450dd93b0d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &103957903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3784,6 +3797,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6412945494235930145, guid: 3fc2b63b91c5da74197c0073b5a04270,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6412945494235930145, guid: 3fc2b63b91c5da74197c0073b5a04270,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6412945494235930168, guid: 3fc2b63b91c5da74197c0073b5a04270,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3837,16 +3860,6 @@ PrefabInstance:
     - target: {fileID: 6412945494235930168, guid: 3fc2b63b91c5da74197c0073b5a04270,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6412945494235930145, guid: 3fc2b63b91c5da74197c0073b5a04270,
-        type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6412945494235930145, guid: 3fc2b63b91c5da74197c0073b5a04270,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6412945494235930173, guid: 3fc2b63b91c5da74197c0073b5a04270,
