@@ -19,7 +19,7 @@ public class BossBehavior : MonoBehaviour
 
     void Start()
     {
-        spawningBossObject = Resources.Load("Portal") as GameObject;
+        spawningBossObject = Resources.Load("portal") as GameObject;
         soulSpawner = GameObject.FindWithTag("SoulSpawner").GetComponent<SoulSpawner>();
         soulSpawner.enabled = false;
     }

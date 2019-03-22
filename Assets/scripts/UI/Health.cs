@@ -16,10 +16,12 @@ public class Health : MonoBehaviour
     public GameObject H1, H2, H3;
     [SerializeField]
     private RawImage ChangeColor;
+    public CamShake camShaking; 
 
     private void Start()
     {
         changeCape();
+        camShaking = GameObject.FindWithTag("MainCamera").GetComponent<CamShake>(); 
     }
 
     void changeCape()
@@ -58,6 +60,7 @@ public class Health : MonoBehaviour
                 Lives--;
                 Counter = 120;
                 AmountOfSouls = 0;
+                camShaking.Shake(0.1f, 0.5f);
             }
             else
             {
