@@ -13,7 +13,7 @@ public class Health : MonoBehaviour
     int MaxAmountOfSouls = 10;
 
     //Lives visual
-    public GameObject H1, H2, H3;
+    public GameObject H1, H2, H3,ChangeColor;
 
     private void Start()
     {
@@ -38,6 +38,7 @@ public class Health : MonoBehaviour
         }
 
         GetComponent<Renderer>().material.color = col;
+        ChangeColor.GetComponent<Renderer>().material.color = col;
     }
 
     //Statements for the collider, If you're hit, you get X amount of invincibility frames

@@ -8,8 +8,8 @@ public class LanesManager : MonoBehaviour
 
     public Vector3 position = new Vector3(-10, -30, -69);
 
-    void Awake()
-    {
+    void Awake(){
+        position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         // Adding Lanes Left / Middle / Right;
         lanes.Add(new Vector3(position.x - 1.5f, position.y, position.z));
         lanes.Add(position);
