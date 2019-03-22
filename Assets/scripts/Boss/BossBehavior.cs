@@ -19,7 +19,7 @@ public class BossBehavior : MonoBehaviour
 
     void Start()
     {
-        spawningBossObject = Resources.Load("portal") as GameObject;
+        spawningBossObject = Resources.Load("Portal") as GameObject;
         soulSpawner = GameObject.FindWithTag("SoulSpawner").GetComponent<SoulSpawner>();
         soulSpawner.enabled = false;
     }
@@ -47,8 +47,10 @@ public class BossBehavior : MonoBehaviour
             if (boss.transform.position != spawningBossPosition)
             {
                 boss.transform.position = Vector3.MoveTowards(boss.transform.position, bossPosition, bossFlyingSpeed * Time.deltaTime);
+                print(boss.transform.position);
             }
         }
+       
     }
 
 
@@ -59,5 +61,6 @@ public class BossBehavior : MonoBehaviour
         yield return new WaitForSeconds(bossWaitingSpawnTimeSeconds);
         Instantiate(spawningBossObject, spawningBossPosition, Quaternion.identity);
         boss = GameObject.FindWithTag("Portal");
+        boss.transform.position = new Vector3(boss.transform.position.x, boss.transform.position.y, boss.transform.position.z - 10);
     }
 }
