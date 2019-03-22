@@ -1974,7 +1974,6 @@ GameObject:
   - component: {fileID: 1074692993}
   - component: {fileID: 1074692995}
   - component: {fileID: 1074692994}
-  - component: {fileID: 1074692996}
   m_Layer: 5
   m_Name: Color
   m_TagString: Untagged
@@ -1991,14 +1990,14 @@ RectTransform:
   m_GameObject: {fileID: 1074692992}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 587310712}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -615, y: 222.2}
+  m_AnchoredPosition: {x: -626.7, y: 221}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1074692994
@@ -2014,14 +2013,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.92141336, b: 0.92141336, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: 5a87ebd5e0688c645bfc18b6433cb3ac, type: 3}
+  m_Texture: {fileID: 2800000, guid: 2ef1cc34b37a52d4cb8f78a3dbe0dfdd, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2036,43 +2035,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1074692992}
   m_CullTransparentMesh: 0
---- !u!23 &1074692996
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1074692992}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!4 &1082203618 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6412945494235930168, guid: 3fc2b63b91c5da74197c0073b5a04270,
@@ -2332,7 +2294,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1186796085
 MonoBehaviour:
@@ -3637,7 +3599,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ChangeColor
       value: 
-      objectReference: {fileID: 1074692992}
+      objectReference: {fileID: 1074692994}
     - target: {fileID: 2747305116901204410, guid: 920622b4f6f78534e8d206ddbbc9d5ce,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -3973,6 +3935,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Empty soul
       objectReference: {fileID: 0}
+    - target: {fileID: 8505517453844041670, guid: f2780693a1855054da05073b75f7400a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7255815638450232765, guid: f2780693a1855054da05073b75f7400a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4011,7 +3978,7 @@ PrefabInstance:
     - target: {fileID: 7255815638450232765, guid: f2780693a1855054da05073b75f7400a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7255815638450232765, guid: f2780693a1855054da05073b75f7400a,
         type: 3}
