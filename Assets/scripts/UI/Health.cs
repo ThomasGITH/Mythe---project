@@ -14,10 +14,14 @@ public class Health : MonoBehaviour
 
     //Lives visual
     public GameObject H1, H2, H3;
+    [SerializeField]
+    private RawImage ChangeColor;
+    public CamShake camShaking; 
 
     private void Start()
     {
         changeCape();
+        camShaking = GameObject.FindWithTag("MainCamera").GetComponent<CamShake>(); 
     }
 
     void changeCape()
@@ -56,6 +60,7 @@ public class Health : MonoBehaviour
                 Lives--;
                 Counter = 120;
                 AmountOfSouls = 0;
+                camShaking.Shake(0.1f, 0.5f);
             }
             else
             {
@@ -129,5 +134,6 @@ public class Health : MonoBehaviour
         AmountOfSouls = AmountOfSouls >= MaxAmountOfSouls ? MaxAmountOfSouls : AmountOfSouls;
 
         GameObject.Find("SoulScore").GetComponent<Text>().text = "" + AmountOfSouls;
+        ChangeColor.color = GetComponent<Renderer>().material.color;
     }
 }
