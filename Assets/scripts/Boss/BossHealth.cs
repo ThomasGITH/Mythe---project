@@ -7,7 +7,7 @@ using System;
 public class BossHealth : MonoBehaviour
 {
     [SerializeField]
-    int Hp = 400;
+    public int Hp = 400;
 
     public BossBehavior bossDeath;
     public Action<int> BossTakingDamage;
