@@ -51,20 +51,10 @@ public class Health : MonoBehaviour
     {
         //If the Player object collides with an object with that "Wrong soul" tag, it takes a life off, and starts the invincibility frames.
 
-
-        
-
-        
         if(col.gameObject.tag == "Soul")
         {
             Color color = currentColor;
             Color soulColor = col.GetComponent<Renderer>().material.color;
-            if ((color != soulColor) && (Counter == 0))
-
-        Color color = currentColor;
-        Color soulColor = col.GetComponent<Renderer>().material.color;
-        if(col.gameObject.tag == "Soul")
-        {
             if ((color != soulColor))
 
             {
