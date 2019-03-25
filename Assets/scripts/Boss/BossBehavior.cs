@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossBehavior : MonoBehaviour
 {
 
-    private Vector3 bossPosition = new Vector3(-10, -30, -30);
+    private Vector3 bossPosition = new Vector3(-9.59f, -30, -30);
     private Vector3 spawningBossPosition = new Vector3(-10, -30, 255);
     [SerializeField]
     private bool bossIsActive = false;
@@ -23,7 +23,6 @@ public class BossBehavior : MonoBehaviour
         soulSpawner = GameObject.FindWithTag("SoulSpawner").GetComponent<SoulSpawner>();
         soulSpawner.enabled = false;
     }
-
     
     void Update()
     {
@@ -47,7 +46,7 @@ public class BossBehavior : MonoBehaviour
             if (boss.transform.position != spawningBossPosition)
             {
                 boss.transform.position = Vector3.MoveTowards(boss.transform.position, bossPosition, bossFlyingSpeed * Time.deltaTime);
-                print(boss.transform.position);
+
             }
         }
        

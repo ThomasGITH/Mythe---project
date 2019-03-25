@@ -14,15 +14,13 @@ public class SoulSpawner : MonoBehaviour
 
     void three_in_a_row()
     {
-        Color col = GameObject.Find("Player").GetComponent<Health>().currentColor;
-
         Vector3 leftPos = soul.transform.position;
         leftPos.x = -11.5f;
         GameObject left = Instantiate(soul, soul.transform.position, soul.transform.rotation);
         left.GetComponent<Soul>().auto_position = false;
         left.transform.position = leftPos;
         left.GetComponent<Soul>().auto_color = false;
-        left.GetComponent<Renderer>().material.color = col;
+        left.GetComponent<Renderer>().material.color = Color.red;
 
         Vector3 centerPos = soul.transform.position;
         centerPos.x = -10f;
@@ -30,7 +28,7 @@ public class SoulSpawner : MonoBehaviour
         center.GetComponent<Soul>().auto_position = false;
         center.transform.position = centerPos;
         center.GetComponent<Soul>().auto_color = false;
-        center.GetComponent<Renderer>().material.color = col;
+        center.GetComponent<Renderer>().material.color = Color.green;
 
         Vector3 rightPos = soul.transform.position;
         rightPos.x = -8.5f;
@@ -38,7 +36,7 @@ public class SoulSpawner : MonoBehaviour
         right.GetComponent<Soul>().auto_position = false;
         right.transform.position = rightPos;
         right.GetComponent<Soul>().auto_color = false;
-        right.GetComponent<Renderer>().material.color = col;
+        right.GetComponent<Renderer>().material.color = Color.blue;
     }
 
     void two_on_each_side()
