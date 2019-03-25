@@ -47,7 +47,7 @@ public class BossBehavior : MonoBehaviour
             if (boss.transform.position != spawningBossPosition)
             {
                 boss.transform.position = Vector3.MoveTowards(boss.transform.position, bossPosition, bossFlyingSpeed * Time.deltaTime);
-                print(boss.transform.position);
+                //print(boss.transform.position);
             }
         }
        
