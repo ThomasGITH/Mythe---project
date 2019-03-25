@@ -44,23 +44,36 @@ public class Health : MonoBehaviour
         GetComponent<Renderer>().material.color = col;
     }
 
+    int colCount = 0;
+
     //Statements for the collider, If you're hit, you get X amount of invincibility frames
     private void OnTriggerEnter(Collider col)
     {
         //If the Player object collides with an object with that "Wrong soul" tag, it takes a life off, and starts the invincibility frames.
-
-        
-
         Color color = currentColor;
         Color soulColor = col.GetComponent<Renderer>().material.color;
         if(col.gameObject.tag == "Soul")
         {
-            if ((color != soulColor) && (Counter == 0))
+            if ((color != soulColor))
             {
                 Lives--;
                 Counter = 120;
                 AmountOfSouls = 0;
                 camShaking.Shake(0.1f, 0.5f);
+
+                colCount++;
+                if(soulColor == Color.red)
+                {
+                    print("red " + colCount);
+                }
+                else if(soulColor == Color.green)
+                {
+                    print("green " + colCount);
+                }
+                else if(soulColor == Color.blue)
+                {
+                    print("blue " + colCount);
+                }
             }
             else
             {
