@@ -7729,7 +7729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05c959ec10ce8b4f9fa38ef284ca4d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soul: {fileID: 8505517453844041670, guid: f2780693a1855054da05073b75f7400a, type: 3}
+  soul: {fileID: 4085423344132190909, guid: 5373b613218572042ac247a39fd712f3, type: 3}
 --- !u!4 &1195947753 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 06fef318205c3ed4b928707d8f1cf728,
