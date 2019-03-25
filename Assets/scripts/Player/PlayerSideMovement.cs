@@ -27,7 +27,7 @@ public class PlayerSideMovement : MonoBehaviour
 
     void Update()
     {
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) {  startTouchPosition = Input.GetTouch(0).position; }
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) { CanSwipe = true; startTouchPosition = Input.GetTouch(0).position; }
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended) { CanSwipe = true; }
 
 
