@@ -51,10 +51,11 @@ public class Health : MonoBehaviour
 
         
 
-        Color color = currentColor;
-        Color soulColor = col.GetComponent<Renderer>().material.color;
+        
         if(col.gameObject.tag == "Soul")
         {
+            Color color = currentColor;
+            Color soulColor = col.GetComponent<Renderer>().material.color;
             if ((color != soulColor) && (Counter == 0))
             {
                 Lives--;
