@@ -8,7 +8,7 @@ public class BossBehavior : MonoBehaviour
     private Vector3 bossPosition = new Vector3(-9.59f, -30, -30);
     private Vector3 spawningBossPosition = new Vector3(-10, -30, 255);
     private Vector3 bossDeadPosition = new Vector3(-10, -30, -75);
-    private Vector3 bossHpPosition = new Vector3(0, 0, 0);
+    private Vector3 bossHpPosition = new Vector3(0, 477, 0);
     private bool bossIsActive = false;
     private bool bossIsInPosition = false;
     private bool canSpawnOtherBoss = false;
@@ -21,12 +21,14 @@ public class BossBehavior : MonoBehaviour
     private bool bossJustDied = false;
     private GameObject spawningBossHp;
     private GameObject bossHp;
+    private GameObject UIObject;
 
     void Start()
     {
         spawningBossObject = Resources.Load("Portal") as GameObject;
         spawningBossHp = Resources.Load("BossHpBackground") as GameObject;
         soulSpawner = GameObject.FindWithTag("SoulSpawner").GetComponent<SoulSpawner>();
+        UIObject = GameObject.FindWithTag("UI");
         soulSpawner.enabled = false;
     }
 
@@ -100,8 +102,8 @@ public class BossBehavior : MonoBehaviour
         }
         yield return new WaitForSeconds(bossWaitingSpawnTimeSeconds);
         Instantiate(spawningBossObject, spawningBossPosition, Quaternion.identity);
-        bossHp = Instantiate(spawningBossHp, bossHpPosition, Quaternion.identity);
-        bossHp.transform.SetParent(GameObject.FindWithTag("UI").transform);
+        bossHp = Instantiate(spawningBossHp, UIObject.transform.position + bossHpPosition, Quaternion.identity);
+        bossHp.transform.SetParent(UIObject.transform);
         boss = GameObject.FindWithTag("Portal");
         canSpawnOtherBoss = true;
     }
