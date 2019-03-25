@@ -23,7 +23,7 @@ public class SoulShoot : MonoBehaviour
     void Update()
     {
         transform.Translate(0, 0, BulletSpeed);
-        boss = GameObject.Find("Portal").GetComponent<BossHealth>();
+        boss = GameObject.FindWithTag("Portal").GetComponent<BossHealth>();
 
 
 
