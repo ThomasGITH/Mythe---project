@@ -62,18 +62,7 @@ public class Health : MonoBehaviour
                 camShaking.Shake(0.1f, 0.5f);
 
                 colCount++;
-                if(soulColor == Color.red)
-                {
-                    print("red " + colCount);
-                }
-                else if(soulColor == Color.green)
-                {
-                    print("green " + colCount);
-                }
-                else if(soulColor == Color.blue)
-                {
-                    print("blue " + colCount);
-                }
+
             }
             else
             {
