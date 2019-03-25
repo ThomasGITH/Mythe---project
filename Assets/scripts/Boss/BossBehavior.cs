@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossBehavior : MonoBehaviour
 {
 
-    private Vector3 bossPosition = new Vector3(-10, -30, -30);
+    private Vector3 bossPosition = new Vector3(-9.59f, -30, -30);
     private Vector3 spawningBossPosition = new Vector3(-10, -30, 255);
     private Vector3 bossDeadPosition = new Vector3(-10, -30, -75);
     private Vector3 bossHpPosition = new Vector3(0, 0, 0);
@@ -30,7 +30,6 @@ public class BossBehavior : MonoBehaviour
         soulSpawner.enabled = false;
     }
 
-
     void Update()
     {
         // Check if boss is alive
@@ -53,6 +52,7 @@ public class BossBehavior : MonoBehaviour
             if (boss.transform.position != bossPosition && bossJustDied == false)
             {
                 boss.transform.position = Vector3.MoveTowards(boss.transform.position, bossPosition, bossFlyingSpeed * Time.deltaTime);
+
             }
 
             if (bossJustDied == true)
@@ -74,6 +74,7 @@ public class BossBehavior : MonoBehaviour
             {
                 soulSpawner.enabled = false;
                 bossIsActive = false;
+
             }
         }
 
