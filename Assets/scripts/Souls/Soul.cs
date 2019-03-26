@@ -32,14 +32,22 @@ public class Soul : MonoBehaviour
                     col = Color.blue;
                     break;
             }
-            //transform.GetChild(0).gameObject.GetComponent<Renderer>().material.color = col;
-            //transform.GetChild(1).gameObject.GetComponent<Renderer>().material.color = col;
+            if (transform.childCount > 0)
+            {
+                var henry = transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().main;
+                henry.startColor = col;
 
-            var henry = transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().main;
-            henry.startColor = col;
+                var garret = transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().main;
+                garret.startColor = col;
+            }
+            else
+            {
+                GetComponent<Renderer>().material.color = col;
+                GetComponent<Renderer>().material.color = col;
+            }
+        
 
-            var garret = transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().main;
-            garret.startColor = col;
+           
         }
 
         if (auto_position)
