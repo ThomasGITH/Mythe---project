@@ -16,12 +16,13 @@ public class Health : MonoBehaviour
     public GameObject H1, H2, H3;
     [SerializeField]
     private RawImage ChangeColor;
-    public CamShake camShaking; 
-
+    public CamShake camShaking;
+    private Image SoulScoreBar;
     private void Start()
     {
         changeCape();
-        camShaking = GameObject.FindWithTag("MainCamera").GetComponent<CamShake>(); 
+        camShaking = GameObject.FindWithTag("MainCamera").GetComponent<CamShake>();
+        SoulScoreBar = GameObject.Find("SoulScoreBar").GetComponent<Image>();
     }
 
     void changeCape()
@@ -44,23 +45,26 @@ public class Health : MonoBehaviour
         GetComponent<Renderer>().material.color = col;
     }
 
+    int colCount = 0;
+
     //Statements for the collider, If you're hit, you get X amount of invincibility frames
     private void OnTriggerEnter(Collider col)
     {
         //If the Player object collides with an object with that "Wrong soul" tag, it takes a life off, and starts the invincibility frames.
 
-        
-
-        Color color = currentColor;
-        Color soulColor = col.GetComponent<Renderer>().material.color;
         if(col.gameObject.tag == "Soul")
         {
-            if ((color != soulColor) && (Counter == 0))
+            Color color = currentColor;
+            Color soulColor = col.GetComponent<Renderer>().material.color;
+            if ((color != soulColor))
+
             {
                 Lives--;
                 Counter = 120;
                 AmountOfSouls = 0;
                 camShaking.Shake(0.1f, 0.5f);
+
+                colCount++;
             }
             else
             {
@@ -134,6 +138,8 @@ public class Health : MonoBehaviour
         AmountOfSouls = AmountOfSouls >= MaxAmountOfSouls ? MaxAmountOfSouls : AmountOfSouls;
 
         GameObject.Find("SoulScore").GetComponent<Text>().text = "" + AmountOfSouls;
+        SoulScoreBar.fillAmount = AmountOfSouls/10f;
+
         ChangeColor.color = GetComponent<Renderer>().material.color;
     }
 }

@@ -6,7 +6,7 @@ public class LanesManager : MonoBehaviour
 {
     public static List<Vector3> lanes = new List<Vector3>();
 
-    public Vector3 position = new Vector3(-10, -30, -69);
+    public Vector3 position = new Vector3(-10, -30, 20);
 
     void Awake(){
         position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
