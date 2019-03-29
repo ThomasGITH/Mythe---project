@@ -38,7 +38,8 @@ public class Health : MonoBehaviour
                 col = Color.green;
                 break;
             case 2:
-                col = Color.blue;
+                Color blue = new Vector4(30f, 0f, 255f, 255f);
+                col = blue;
                 break;
         }
 

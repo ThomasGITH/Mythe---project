@@ -29,7 +29,8 @@ public class Soul : MonoBehaviour
                     col = Color.green;
                     break;
                 case Col.BLUE:
-                    col = Color.blue;
+                    Color blue =  new Vector4(30f, 0f, 255f, 255f);
+                    col = blue;
                     break;
             }
             if (transform.childCount > 0)
@@ -39,6 +40,9 @@ public class Soul : MonoBehaviour
 
                 var garret = transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().main;
                 garret.startColor = col;
+
+                var third = transform.GetChild(2).gameObject.GetComponent<ParticleSystem>().main;
+                third.startColor = col;
             }
             else
             {
