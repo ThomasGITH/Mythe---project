@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class ChangeLevel : MonoBehaviour
 {
+    [SerializeField]
     private GameObject[] list;
     private GameObject cam;
+    [SerializeField]
     private byte level = 0;
 
     private void Start()
@@ -19,15 +21,22 @@ public class ChangeLevel : MonoBehaviour
         cam = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
-    void Update()
+    public void ChangingLevel()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (level == 0)
         {
-            Destroy(list[level]);
-            level++;
+            list[level].SetActive(false);
+            level += 1;
             list[level].SetActive(true);
-            cam.transform.position = new Vector3(cam.transform.position.x + 630, cam.transform.position.y, cam.transform.position.z);
+        }
+        else
+            if (level == 1)
+        {
+            list[level].SetActive(false);
+            level -= 1;
+            list[level].SetActive(true);
         }
     }
-
 }
+
+

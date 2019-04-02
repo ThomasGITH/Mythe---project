@@ -22,6 +22,7 @@ public class BossBehavior : MonoBehaviour
     private GameObject spawningBossHp;
     private GameObject bossHp;
     private GameObject UIObject;
+    private ChangeLevel changeLvl;
 
     void Start()
     {
@@ -30,6 +31,7 @@ public class BossBehavior : MonoBehaviour
         soulSpawner = GameObject.FindWithTag("SoulSpawner").GetComponent<SoulSpawner>();
         UIObject = GameObject.FindWithTag("UI");
         soulSpawner.enabled = false;
+        changeLvl = GameObject.Find("Levels").GetComponent<ChangeLevel>();
     }
 
     void Update()
@@ -64,6 +66,7 @@ public class BossBehavior : MonoBehaviour
 
             if (boss.transform.position == bossDeadPosition)
             {
+                changeLvl.ChangingLevel();
                 bossJustDied = false;
                 Destroy(boss);
                 Destroy(bossHp);
@@ -74,9 +77,7 @@ public class BossBehavior : MonoBehaviour
         {
             if (canSpawnOtherBoss == true)
             {
-                soulSpawner.enabled = false;
                 bossIsActive = false;
-
             }
         }
 
@@ -86,6 +87,13 @@ public class BossBehavior : MonoBehaviour
     public void BossDied()
     {
         bossJustDied = true;
+        soulSpawner.enabled = false;
+        var gameObjects = GameObject.FindGameObjectsWithTag("Soul");
+
+        for (var i = 0; i < gameObjects.Length; i++)
+        {
+            Destroy(gameObjects[i]);
+        }
     }
 
 
