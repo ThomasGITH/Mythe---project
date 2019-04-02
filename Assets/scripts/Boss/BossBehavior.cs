@@ -5,9 +5,9 @@ using UnityEngine;
 public class BossBehavior : MonoBehaviour
 {
 
-    private Vector3 bossPosition = new Vector3(-9.59f, -30, -30);
-    private Vector3 spawningBossPosition = new Vector3(-10, -30, 255);
-    private Vector3 bossDeadPosition = new Vector3(-10, -30, -75);
+    [SerializeField] private Vector3 bossPosition = new Vector3(-9.59f, -30, -30);
+    [SerializeField] private Vector3 spawningBossPosition = new Vector3(-10, -30, 255);
+    [SerializeField] private Vector3 bossDeadPosition = new Vector3(-10, -30, -75);
     private Vector3 bossHpPosition = new Vector3(0, 477, 0);
     private bool bossIsActive = false;
     private bool bossIsInPosition = false;

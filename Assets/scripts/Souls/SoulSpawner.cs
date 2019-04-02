@@ -15,7 +15,8 @@ public class SoulSpawner : MonoBehaviour
     void three_in_a_row()
     {
         Vector3 leftPos = soul.transform.position;
-        leftPos.x = -11.5f;
+        leftPos.x = LanesManager.lanes[0].x;
+        //leftPos.x = -11.5f;
         GameObject left = Instantiate(soul, soul.transform.position, soul.transform.rotation);
         left.GetComponent<Soul>().auto_position = false;
         left.transform.position = leftPos;
@@ -23,7 +24,8 @@ public class SoulSpawner : MonoBehaviour
         left.GetComponent<Renderer>().material.color = Color.red;
 
         Vector3 centerPos = soul.transform.position;
-        centerPos.x = -10f;
+        centerPos.x = LanesManager.lanes[1].x;
+       // centerPos.x = -10f;
         GameObject center = Instantiate(soul, soul.transform.position, soul.transform.rotation);
         center.GetComponent<Soul>().auto_position = false;
         center.transform.position = centerPos;
@@ -31,7 +33,8 @@ public class SoulSpawner : MonoBehaviour
         center.GetComponent<Renderer>().material.color = Color.green;
 
         Vector3 rightPos = soul.transform.position;
-        rightPos.x = -8.5f;
+        rightPos.x = LanesManager.lanes[2].x;
+        // rightPos.x = -8.5f;
         GameObject right = Instantiate(soul, soul.transform.position, soul.transform.rotation);
         right.GetComponent<Soul>().auto_position = false;
         right.transform.position = rightPos;
@@ -42,13 +45,15 @@ public class SoulSpawner : MonoBehaviour
     void two_on_each_side()
     {
         Vector3 leftPos = soul.transform.position;
-        leftPos.x = -11.5f;
+        leftPos.x = LanesManager.lanes[0].x;
+        //leftPos.x = -11.5f;
         GameObject left = Instantiate(soul, soul.transform.position, soul.transform.rotation);
         left.GetComponent<Soul>().auto_position = false;
         left.transform.position = leftPos;
 
         Vector3 rightPos = soul.transform.position;
-        rightPos.x = -8.5f;
+       // rightPos.x = -8.5f;
+        rightPos.x = LanesManager.lanes[2].x;
         GameObject right = Instantiate(soul, soul.transform.position, soul.transform.rotation);
         right.GetComponent<Soul>().auto_position = false;
         right.transform.position = rightPos;
@@ -57,13 +62,15 @@ public class SoulSpawner : MonoBehaviour
     void two_left()
     {
         Vector3 leftPos = soul.transform.position;
-        leftPos.x = -11.5f;
+        leftPos.x = LanesManager.lanes[0].x;
+        //leftPos.x = -11.5f;
         GameObject left = Instantiate(soul, soul.transform.position, soul.transform.rotation);
         left.GetComponent<Soul>().auto_position = false;
         left.transform.position = leftPos;
 
         Vector3 rightPos = soul.transform.position;
-        rightPos.x = -10f;
+        rightPos.x = LanesManager.lanes[1].x;
+        //rightPos.x = -10f;
         GameObject right = Instantiate(soul, soul.transform.position, soul.transform.rotation);
         right.GetComponent<Soul>().auto_position = false;
         right.transform.position = rightPos;
@@ -72,13 +79,15 @@ public class SoulSpawner : MonoBehaviour
     void two_right()
     {
         Vector3 leftPos = soul.transform.position;
-        leftPos.x = -10f;
+        leftPos.x = LanesManager.lanes[1].x;
+        // leftPos.x = -10f;
         GameObject left = Instantiate(soul, soul.transform.position, soul.transform.rotation);
         left.GetComponent<Soul>().auto_position = false;
         left.transform.position = leftPos;
 
         Vector3 rightPos = soul.transform.position;
-        rightPos.x = -8.5f;
+        rightPos.x = LanesManager.lanes[2].x;
+        //rightPos.x = -8.5f;
         GameObject right = Instantiate(soul, soul.transform.position, soul.transform.rotation);
         right.GetComponent<Soul>().auto_position = false;
         right.transform.position = rightPos;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1615,6 +1615,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f2bed1ebe88d5418df12cc8475bd91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PosBridge2_Z: 320
+  P1_true: 1
+  P2_true: 1
 --- !u!1001 &154620091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3804,6 +3807,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6412945494235930146, guid: 3fc2b63b91c5da74197c0073b5a04270,
+        type: 3}
+      propertyPath: H1
+      value: 
+      objectReference: {fileID: 446663949}
+    - target: {fileID: 6412945494235930146, guid: 3fc2b63b91c5da74197c0073b5a04270,
+        type: 3}
+      propertyPath: H2
+      value: 
+      objectReference: {fileID: 1771150651}
+    - target: {fileID: 6412945494235930146, guid: 3fc2b63b91c5da74197c0073b5a04270,
+        type: 3}
+      propertyPath: H3
+      value: 
+      objectReference: {fileID: 913238484}
     - target: {fileID: 6412945494235930168, guid: 3fc2b63b91c5da74197c0073b5a04270,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3864,21 +3882,6 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6412945494235930146, guid: 3fc2b63b91c5da74197c0073b5a04270,
-        type: 3}
-      propertyPath: H1
-      value: 
-      objectReference: {fileID: 446663949}
-    - target: {fileID: 6412945494235930146, guid: 3fc2b63b91c5da74197c0073b5a04270,
-        type: 3}
-      propertyPath: H2
-      value: 
-      objectReference: {fileID: 1771150651}
-    - target: {fileID: 6412945494235930146, guid: 3fc2b63b91c5da74197c0073b5a04270,
-        type: 3}
-      propertyPath: H3
-      value: 
-      objectReference: {fileID: 913238484}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fc2b63b91c5da74197c0073b5a04270, type: 3}
 --- !u!4 &473636031 stripped
@@ -6694,6 +6697,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f2bed1ebe88d5418df12cc8475bd91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PosBridge2_Z: 320
+  P1_true: 1
+  P2_true: 1
 --- !u!4 &984287935
 Transform:
   m_ObjectHideFlags: 0
@@ -7739,7 +7745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05c959ec10ce8b4f9fa38ef284ca4d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soul: {fileID: 6221536578369341949, guid: 5373b613218572042ac247a39fd712f3, type: 3}
+  soul: {fileID: 8505517453844041670, guid: f2780693a1855054da05073b75f7400a, type: 3}
 --- !u!4 &1195947753 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 06fef318205c3ed4b928707d8f1cf728,
@@ -12066,6 +12072,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646bb3ae87ae2ce4097d4c637ed98f12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossPosition: {x: -9.59, y: -30, z: -30}
+  spawningBossPosition: {x: -10, y: -30, z: 255}
 --- !u!4 &1829381278 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 06fef318205c3ed4b928707d8f1cf728,
