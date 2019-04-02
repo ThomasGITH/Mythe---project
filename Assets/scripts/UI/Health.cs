@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
-{
-    int Lives = 3;
+{   // lives/Dead is public wegens soundeffectPLayer
+    public int Lives = 3;
     int Counter = 0;
-    bool Dead = false;
+    public bool Dead = false;
 
     public int AmountOfSouls = 0;
     int MaxAmountOfSouls = 10;

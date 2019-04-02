@@ -33,7 +33,7 @@ public class MasterAudio : MonoBehaviour
             AudioPlayer.clip = MainMenu;
         }
 
-        else if (ActiveScene.name == "MainScene")
+        else if (ActiveScene.name == "MainScene" || ActiveScene.name == "CleanScene")
         {
             AudioPlayer.clip = Game;
         }
@@ -49,13 +49,13 @@ public class MasterAudio : MonoBehaviour
     void Update()
     {
         //Handles the sound volume for the pause menu,
-        if (PauseScript.GetComponent<Pause>().Stopped == true && Converted == true && ActiveScene.name == "MainScene")
+        if (PauseScript.GetComponent<Pause>().Stopped == true && Converted == true && (ActiveScene.name == "MainScene" || ActiveScene.name == "CleanScene"))
         {
             Converted = false;
             Pause = false;
         }
 
-        else if (PauseScript.GetComponent<Pause>().Stopped == false && Converted == true && ActiveScene.name == "MainScene")
+        else if (PauseScript.GetComponent<Pause>().Stopped == false && Converted == true && (ActiveScene.name == "MainScene" || ActiveScene.name == "CleanScene"))
         {
             Converted = false;
             Pause = true;

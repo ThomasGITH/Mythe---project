@@ -7,6 +7,7 @@ using UnityEngine;
 public class PauseButtons : MonoBehaviour
 {
     string Menu = "Menu";
+    string Game = "MainScene";
 
     public void ResumeButton()
     {
@@ -21,5 +22,15 @@ public class PauseButtons : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene(Menu);
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene(Game);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
