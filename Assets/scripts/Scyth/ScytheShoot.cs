@@ -10,15 +10,15 @@ public class ScytheShoot : MonoBehaviour
     private GameObject player;
     private int playerLane = 0;
     private int shootingLane;
-
-    private int soulAmount;
+    // soulAmount/recharging/attackDelay is public wegens soundeffectPLayer
+    public int soulAmount;
     private int soulDamage;
 
-    private bool recharging = false;
+    public bool recharging = false;
     private float rechargeTimer = 0;
     private float maxRechargeTimer = 3;
 
-    private bool attackDelay = false;
+    public bool attackDelay = false;
     private float delayTimer = 0;
     private float maxdelayTimer = 0.5f;
 
