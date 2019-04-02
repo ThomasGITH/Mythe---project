@@ -6,8 +6,6 @@ TagManager:
   tags:
   - Portal
   - Soul
-  - SoulSpawner
-  - UI
   layers:
   - Default
   - TransparentFX

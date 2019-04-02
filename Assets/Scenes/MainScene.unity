@@ -8231,7 +8231,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b1dfc4bd9f26716439770d1a36ed7f3e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4d649df1b1b27d24eacf97e1b88e7774, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12072,8 +12072,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646bb3ae87ae2ce4097d4c637ed98f12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossPosition: {x: -9.59, y: -30, z: -30}
+  bossPosition: {x: -9.59, y: -30, z: 0}
   spawningBossPosition: {x: -10, y: -30, z: 255}
+  bossDeadPosition: {x: -10, y: -30, z: -75}
 --- !u!4 &1829381278 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 06fef318205c3ed4b928707d8f1cf728,

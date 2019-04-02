@@ -621,6 +621,7 @@ GameObject:
   - component: {fileID: 1856903300}
   - component: {fileID: 1856903299}
   - component: {fileID: 1856903302}
+  - component: {fileID: 1856903303}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -705,6 +706,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7989bb1cee8f2547a44c6efee04526e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1856903303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856903298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62546947604d38c4aa5ce04369f00d83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Stopped: 0
+  LevelCheck: 1
+  PauseScreen: {fileID: 0}
+  lvl1: {fileID: 0}
+  lvl2: {fileID: 0}
 --- !u!1 &2057501807
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,6 +869,11 @@ PrefabInstance:
       propertyPath: MainMenu
       value: 
       objectReference: {fileID: 8300000, guid: 1720acb7f59fdbf4390b86612cb85d04, type: 3}
+    - target: {fileID: 3052732044112619695, guid: 3c8cb718684e9d744814ffd06eed21b0,
+        type: 3}
+      propertyPath: PauseScript
+      value: 
+      objectReference: {fileID: 1856903298}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c8cb718684e9d744814ffd06eed21b0, type: 3}
 --- !u!4 &2072070749 stripped
