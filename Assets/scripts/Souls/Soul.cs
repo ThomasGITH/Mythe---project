@@ -29,13 +29,33 @@ public class Soul : MonoBehaviour
                     col = Color.green;
                     break;
                 case Col.BLUE:
-                    col = Color.blue;
+                    Color blue =  new Vector4(30f, 0f, 255f, 255f);
+                    col = blue;
                     break;
             }
-            GetComponent<Renderer>().material.color = col;
+            if (transform.childCount > 0)
+            {
+                this.transform.GetComponent<SpriteRenderer>().color = col;
+                this.transform.GetComponent<Renderer>().material.color = col;
+
+                var henry = transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().main;
+                henry.startColor = col;
+
+                var garret = transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().main;
+                garret.startColor = col;
+
+            }
+            else
+            {
+                GetComponent<Renderer>().material.color = col;
+                GetComponent<Renderer>().material.color = col;
+            }
+        
+
+           
         }
 
-        if(auto_position)
+        if (auto_position)
         {
             lanePositions = new float[3];
 

@@ -16,12 +16,13 @@ public class Health : MonoBehaviour
     public GameObject H1, H2, H3;
     [SerializeField]
     private RawImage ChangeColor;
-    public CamShake camShaking; 
-
+    public CamShake camShaking;
+    private Image SoulScoreBar;
     private void Start()
     {
         changeCape();
-        camShaking = GameObject.FindWithTag("MainCamera").GetComponent<CamShake>(); 
+        camShaking = GameObject.FindWithTag("MainCamera").GetComponent<CamShake>();
+        SoulScoreBar = GameObject.Find("SoulScoreBar").GetComponent<Image>();
     }
 
     void changeCape()
@@ -37,7 +38,8 @@ public class Health : MonoBehaviour
                 col = Color.green;
                 break;
             case 2:
-                col = Color.blue;
+                Color blue = new Vector4(30f, 0f, 255f, 255f);
+                col = blue;
                 break;
         }
 
@@ -50,11 +52,13 @@ public class Health : MonoBehaviour
     private void OnTriggerEnter(Collider col)
     {
         //If the Player object collides with an object with that "Wrong soul" tag, it takes a life off, and starts the invincibility frames.
-        Color color = currentColor;
-        Color soulColor = col.GetComponent<Renderer>().material.color;
+
         if(col.gameObject.tag == "Soul")
         {
+            Color color = currentColor;
+            Color soulColor = col.GetComponent<Renderer>().material.color;
             if ((color != soulColor))
+
             {
                 Lives--;
                 Counter = 120;
@@ -62,7 +66,6 @@ public class Health : MonoBehaviour
                 camShaking.Shake(0.1f, 0.5f);
 
                 colCount++;
-
             }
             else
             {
@@ -79,6 +82,7 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        AmountOfSouls = 10;
         timer += Time.deltaTime;
 
         //Where invincibility frames get handled
@@ -136,6 +140,8 @@ public class Health : MonoBehaviour
         AmountOfSouls = AmountOfSouls >= MaxAmountOfSouls ? MaxAmountOfSouls : AmountOfSouls;
 
         GameObject.Find("SoulScore").GetComponent<Text>().text = "" + AmountOfSouls;
+        SoulScoreBar.fillAmount = AmountOfSouls/10f;
+
         ChangeColor.color = GetComponent<Renderer>().material.color;
     }
 }

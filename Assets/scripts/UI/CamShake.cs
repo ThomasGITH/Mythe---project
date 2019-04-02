@@ -6,11 +6,24 @@ public class CamShake : MonoBehaviour
 {
 
     private Vector3 originalPos;
+    private Pause pausing;
+    private bool isPaused;
 
     void Awake()
     {
         originalPos = transform.localPosition;
     }
+
+    private void Start()
+    {
+        pausing = GameObject.Find("Pause").GetComponent<Pause>();
+    }
+
+    private void Update()
+    {
+        isPaused = pausing.Stopped;
+    }
+
 
     public void Shake(float duration, float amount)
     {
@@ -22,15 +35,24 @@ public class CamShake : MonoBehaviour
     {
         float endTime = Time.time + duration;
 
-        while (Time.time < endTime)
+            while (Time.time < endTime)
+            {
+                transform.localPosition = originalPos + Random.insideUnitSphere * amount;
+
+                duration -= Time.deltaTime;
+
+            if (isPaused == true)
         {
-            transform.localPosition = originalPos + Random.insideUnitSphere * amount;
-
-            duration -= Time.deltaTime;
-
-            yield return null;
+                transform.localPosition = new Vector3(-9.92f, -27.31f, -73.07f);
+            yield break;
         }
 
+                yield return null;
+       }
+        
+
         transform.localPosition = originalPos;
+
+        
     }
 }
