@@ -13,8 +13,8 @@ public class Grid : MonoBehaviour
     {
         for (int i = 0; i < 15; i++)
         {
-            objs[i] = Instantiate(cube, transform);//2.56
-            objs[i].transform.position += new Vector3(0f, 0f,i*5f);
+            objs[i] = Instantiate(cube, transform);//5.035 eerste brug
+            objs[i].transform.position += new Vector3(0f, 0f,i*5.035f);
         }
 
     }
