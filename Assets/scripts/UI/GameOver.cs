@@ -11,6 +11,8 @@ public class GameOver : MonoBehaviour
     public bool Dead;
     public int ScoreCounter = 0;
     public Text ScoreDisplay;
+    public Text ScoreDisplay2;
+
     private Pause Pauser;
     private Health Checker;
 
@@ -34,7 +36,8 @@ public class GameOver : MonoBehaviour
         else if (!Dead)
         {
             ScoreCounter = ScoreCounter + 1;
-            ScoreDisplay.text = ScoreCounter.ToString();
+            ScoreDisplay.text = "Score: " + ScoreCounter.ToString();
+            ScoreDisplay2.text = ScoreCounter.ToString();
         }
     }
 }
