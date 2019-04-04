@@ -37,11 +37,11 @@ public class Soul : MonoBehaviour
             {
                 this.transform.GetComponent<SpriteRenderer>().color = col;
                 this.transform.GetComponent<Renderer>().material.color = col;
-
-                var henry = transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().main;
-                henry.startColor = col;
-
                 var garret = transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().main;
+                var henry = transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().main;
+
+                henry.startColor = col;
+     
                 garret.startColor = col;
 
             }

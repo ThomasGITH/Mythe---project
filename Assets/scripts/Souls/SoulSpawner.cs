@@ -20,8 +20,8 @@ public class SoulSpawner : MonoBehaviour
         GameObject left = Instantiate(soul, soul.transform.position, soul.transform.rotation);
         left.GetComponent<Soul>().auto_position = false;
         left.transform.position = leftPos;
-        left.GetComponent<Soul>().auto_color = false;
-        left.GetComponent<Renderer>().material.color = Color.red;
+        //left.GetComponent<Soul>().auto_color = false;
+        //left.GetComponent<Renderer>().material.color = Color.red;
 
         Vector3 centerPos = soul.transform.position;
         centerPos.x = LanesManager.lanes[1].x;
@@ -29,8 +29,8 @@ public class SoulSpawner : MonoBehaviour
         GameObject center = Instantiate(soul, soul.transform.position, soul.transform.rotation);
         center.GetComponent<Soul>().auto_position = false;
         center.transform.position = centerPos;
-        center.GetComponent<Soul>().auto_color = false;
-        center.GetComponent<Renderer>().material.color = Color.green;
+        //center.GetComponent<Soul>().auto_color = false;
+        //center.GetComponent<Renderer>().material.color = Color.green;
 
         Vector3 rightPos = soul.transform.position;
         rightPos.x = LanesManager.lanes[2].x;
@@ -38,8 +38,8 @@ public class SoulSpawner : MonoBehaviour
         GameObject right = Instantiate(soul, soul.transform.position, soul.transform.rotation);
         right.GetComponent<Soul>().auto_position = false;
         right.transform.position = rightPos;
-        right.GetComponent<Soul>().auto_color = false;
-        right.GetComponent<Renderer>().material.color = Color.blue;
+        //right.GetComponent<Soul>().auto_color = false;
+        //right.GetComponent<Renderer>().material.color = Color.blue;
     }
 
     void two_on_each_side()

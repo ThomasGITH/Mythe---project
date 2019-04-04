@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
-{   // lives/Dead is public wegens soundeffectPLayer
+{
     public int Lives = 3;
-    int Counter = 0;
+    public int Counter = 0;
     public bool Dead = false;
 
-    public int AmountOfSouls = 0;
-    int MaxAmountOfSouls = 10;
+    public int AmountOfSouls = 10;
+    public int MaxAmountOfSouls = 10;
 
     //Lives visual
     public GameObject H1, H2, H3;
@@ -56,7 +56,7 @@ public class Health : MonoBehaviour
         if(col.gameObject.tag == "Soul")
         {
             Color color = currentColor;
-            Color soulColor = col.GetComponent<Renderer>().material.color;
+            Color soulColor = col.GetComponent<SpriteRenderer>().color;
             if ((color != soulColor))
 
             {
@@ -83,7 +83,7 @@ public class Health : MonoBehaviour
     void Update()
     {
         AmountOfSouls = 10;
-        timer += Time.deltaTime;
+           timer += Time.deltaTime;
 
         //Where invincibility frames get handled
         if (Counter > 0)
