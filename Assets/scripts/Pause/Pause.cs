@@ -75,4 +75,26 @@ public class Pause : MonoBehaviour
         Time.timeScale = 0;                 //Stops time
         Stopped = true;
     }
+
+    public void DeadPaused()
+    {
+        if (lvl1.GetComponent<RoadMovement>().enabled == true && LevelCheck == true)             //The conditions for pausing the 1st level
+        {
+            lvl1.GetComponent<RoadMovement>().enabled = false;
+        }
+
+        else if (lvl2.GetComponent<RoadMovement>().enabled == true && LevelCheck == false)       //The conditions for pausing the 2nd level
+        {
+            lvl2.GetComponent<RoadMovement>().enabled = false;
+        }
+
+        Prefab = GameObject.FindGameObjectsWithTag("Soul");         //Finds the colored souls
+        foreach (GameObject script in Prefab)                        //Handles the pausing for the colored souls
+        {
+            script.GetComponent<Soul>().enabled = false;
+        }
+
+        Time.timeScale = 0;                 //Stops time
+        Stopped = true;
+    }
 }

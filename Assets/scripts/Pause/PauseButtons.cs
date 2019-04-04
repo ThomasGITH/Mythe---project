@@ -7,7 +7,7 @@ using UnityEngine;
 public class PauseButtons : MonoBehaviour
 {
     string Menu = "Menu";
-    string Game = "MainScene";
+    string Game = "CleanScene";
 
     public void ResumeButton()
     {
@@ -33,4 +33,5 @@ public class PauseButtons : MonoBehaviour
     {
         Application.Quit();
     }
+
 }

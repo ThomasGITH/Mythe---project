@@ -1,34 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 //Brandon Ruigrok
 public class GameOver : MonoBehaviour
 {
-    GameObject DeathScreen;
+    public GameObject DeathScreen;
 
-    private bool Dead;
+    public bool Dead;
+    public int ScoreCounter = 0;
+    public Text ScoreDisplay;
     private Pause Pauser;
     private Health Checker;
 
     // Start is called before the first frame update
     void Start()
     {
-        DeathScreen = this.gameObject.transform.GetChild(0).gameObject;
         Checker = GameObject.Find("Player").GetComponent<Health>();
         Pauser = GameObject.Find("Pause").GetComponent<Pause>();
-        Dead = Checker.Dead;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Dead = Checker.Dead;
+        Dead = Checker.Dead; //Checks to see if the player died.
         if (Dead == true)
         {
             DeathScreen.SetActive(true);
-            Pauser.Paused();
+            Pauser.DeadPaused();
+        }
+
+        else if (!Dead)
+        {
+            ScoreCounter = ScoreCounter + 1;
+            ScoreDisplay.text = ScoreCounter.ToString();
         }
     }
 }
