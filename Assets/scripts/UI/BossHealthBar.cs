@@ -8,7 +8,7 @@ public class BossHealthBar : MonoBehaviour
     private Transform bossHpBar;
     private BossHealth health;
     [SerializeField]
-    private float thisHealthBar;
+    public float thisHealthBar;
     [SerializeField]
     private float newHealthBar;
     private Image healthBar;
