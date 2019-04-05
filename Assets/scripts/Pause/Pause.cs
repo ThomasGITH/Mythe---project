@@ -16,7 +16,10 @@ public class Pause : MonoBehaviour
     public GameObject lvl2;
 
     GameObject[] Prefab;                //Is important for the colored souls movement
-
+    private void Start()
+    {
+        Resumed();
+    }
     // Update is called once per frame
     void Update()
     {
