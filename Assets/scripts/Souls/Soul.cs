@@ -68,7 +68,7 @@ public class Soul : MonoBehaviour
         }
     }
 
-    public float speed = -0.25f;
+    public float speed = -0.45f;
 
     private void Update()
     {

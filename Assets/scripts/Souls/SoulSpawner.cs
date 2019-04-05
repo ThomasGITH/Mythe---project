@@ -6,7 +6,7 @@ public class SoulSpawner : MonoBehaviour
 {
     public GameObject soul;
     float CurrentTime;
-    float speed = -0.25f;
+    float speed = -0.45f;
 
     void random_mess()
     {
@@ -112,8 +112,8 @@ public class SoulSpawner : MonoBehaviour
         RoadMovement.speed = speed;
 
         print("Soulspeed: " + speed);
-
-        if (CurrentTime > 0.5f)
+        
+        if (CurrentTime > 0.75f)
         {
             CurrentTime = 0;
        

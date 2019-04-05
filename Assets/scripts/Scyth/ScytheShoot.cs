@@ -24,7 +24,7 @@ public class ScytheShoot : MonoBehaviour
 
     private bool shotLeft = false;
     private bool shotRight = false;
-
+    private Animator animator;
 
 
     private GameObject bulletprefab;
@@ -39,6 +39,7 @@ public class ScytheShoot : MonoBehaviour
         getSouls = player.GetComponent<Health>();
         bulletprefab = Resources.Load("Bullet") as GameObject;
         playerLanes = LanesManager.lanes;
+        animator = GameObject.Find("RUNCYCLE").GetComponent<Animator>();
         
     }
 
@@ -76,6 +77,7 @@ public class ScytheShoot : MonoBehaviour
             attackDelay = false;
             shooting();
             delayTimer = 0;
+            animator.SetInteger("State", 0);
         }
 
 
@@ -102,6 +104,7 @@ public class ScytheShoot : MonoBehaviour
             {
                 shootingLane = -1;
                 attackDelay = true;
+                animator.SetInteger("State", 1);
             }
         }
     }
@@ -114,8 +117,9 @@ public class ScytheShoot : MonoBehaviour
                 if (playerLane != 2)
                 {
                     shootingLane = 1;
-                    attackDelay = true;
-                }
+                attackDelay = true;
+                    animator.SetInteger("State", 2);
+            }
             }
     }
 
