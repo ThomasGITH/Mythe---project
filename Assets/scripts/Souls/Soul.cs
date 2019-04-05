@@ -68,9 +68,11 @@ public class Soul : MonoBehaviour
         }
     }
 
+    public float speed = -0.55f;
+
     private void Update()
     {
-        transform.Translate(0,0,-0.55f);
+        transform.Translate(0,0,speed);
 
         if(transform.position.z < -75)
         {

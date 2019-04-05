@@ -6,10 +6,12 @@ public class SoulSpawner : MonoBehaviour
 {
     public GameObject soul;
     float CurrentTime;
+    float speed = -0.25f;
 
     void random_mess()
     {
-        Instantiate(soul, soul.transform.position, soul.transform.rotation);
+        GameObject instance = Instantiate(soul, soul.transform.position, soul.transform.rotation);
+        instance.gameObject.GetComponent<Soul>().speed = speed;
     }
 
     void three_in_a_row()
@@ -22,6 +24,7 @@ public class SoulSpawner : MonoBehaviour
         left.transform.position = leftPos;
         //left.GetComponent<Soul>().auto_color = false;
         //left.GetComponent<Renderer>().material.color = Color.red;
+        left.gameObject.GetComponent<Soul>().speed = speed;
 
         Vector3 centerPos = soul.transform.position;
         centerPos.x = LanesManager.lanes[1].x;
@@ -31,6 +34,7 @@ public class SoulSpawner : MonoBehaviour
         center.transform.position = centerPos;
         //center.GetComponent<Soul>().auto_color = false;
         //center.GetComponent<Renderer>().material.color = Color.green;
+        center.gameObject.GetComponent<Soul>().speed = speed;
 
         Vector3 rightPos = soul.transform.position;
         rightPos.x = LanesManager.lanes[2].x;
@@ -38,6 +42,7 @@ public class SoulSpawner : MonoBehaviour
         GameObject right = Instantiate(soul, soul.transform.position, soul.transform.rotation);
         right.GetComponent<Soul>().auto_position = false;
         right.transform.position = rightPos;
+        right.gameObject.GetComponent<Soul>().speed = speed;
         //right.GetComponent<Soul>().auto_color = false;
         //right.GetComponent<Renderer>().material.color = Color.blue;
     }
@@ -50,6 +55,7 @@ public class SoulSpawner : MonoBehaviour
         GameObject left = Instantiate(soul, soul.transform.position, soul.transform.rotation);
         left.GetComponent<Soul>().auto_position = false;
         left.transform.position = leftPos;
+        left.gameObject.GetComponent<Soul>().speed = speed;
 
         Vector3 rightPos = soul.transform.position;
        // rightPos.x = -8.5f;
@@ -57,6 +63,7 @@ public class SoulSpawner : MonoBehaviour
         GameObject right = Instantiate(soul, soul.transform.position, soul.transform.rotation);
         right.GetComponent<Soul>().auto_position = false;
         right.transform.position = rightPos;
+        right.gameObject.GetComponent<Soul>().speed = speed;
     }
 
     void two_left()
@@ -67,6 +74,7 @@ public class SoulSpawner : MonoBehaviour
         GameObject left = Instantiate(soul, soul.transform.position, soul.transform.rotation);
         left.GetComponent<Soul>().auto_position = false;
         left.transform.position = leftPos;
+        left.gameObject.GetComponent<Soul>().speed = speed;
 
         Vector3 rightPos = soul.transform.position;
         rightPos.x = LanesManager.lanes[1].x;
@@ -74,6 +82,7 @@ public class SoulSpawner : MonoBehaviour
         GameObject right = Instantiate(soul, soul.transform.position, soul.transform.rotation);
         right.GetComponent<Soul>().auto_position = false;
         right.transform.position = rightPos;
+        right.gameObject.GetComponent<Soul>().speed = speed;
     }
 
     void two_right()
@@ -84,6 +93,7 @@ public class SoulSpawner : MonoBehaviour
         GameObject left = Instantiate(soul, soul.transform.position, soul.transform.rotation);
         left.GetComponent<Soul>().auto_position = false;
         left.transform.position = leftPos;
+        left.gameObject.GetComponent<Soul>().speed = speed;
 
         Vector3 rightPos = soul.transform.position;
         rightPos.x = LanesManager.lanes[2].x;
@@ -91,13 +101,19 @@ public class SoulSpawner : MonoBehaviour
         GameObject right = Instantiate(soul, soul.transform.position, soul.transform.rotation);
         right.GetComponent<Soul>().auto_position = false;
         right.transform.position = rightPos;
+        right.gameObject.GetComponent<Soul>().speed = speed;
     }
 
     void Update()
     {
         CurrentTime += Time.deltaTime;
 
-        if(CurrentTime > 0.5f)
+        speed = speed > -0.55f ? speed - 0.0001f : speed;
+        RoadMovement.speed = speed;
+
+        print(speed);
+
+        if (CurrentTime > 0.5f)
         {
             CurrentTime = 0;
        
