@@ -108,10 +108,10 @@ public class SoulSpawner : MonoBehaviour
     {
         CurrentTime += Time.deltaTime;
 
-        speed = speed > -0.55f ? speed - 0.0001f : speed;
+        speed = speed > -0.45f ? speed - 0.0001f : speed;
         RoadMovement.speed = speed;
 
-        print(speed);
+        print("Soulspeed: " + speed);
 
         if (CurrentTime > 0.5f)
         {
