@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-//Brandon Ruigrok
 public class BossHealth : MonoBehaviour
 {
     [SerializeField]
