@@ -33,7 +33,7 @@ public class GameOver : MonoBehaviour
             Pauser.DeadPaused();
         }
 
-        else if (!Dead)
+        else if (!Dead && Pauser.Stopped == false)
         {
             ScoreCounter = ScoreCounter + 1;
             ScoreDisplay.text = "Score: " + ScoreCounter.ToString();

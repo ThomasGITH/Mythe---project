@@ -82,7 +82,8 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-           timer += Time.deltaTime;
+
+        timer += Time.deltaTime;
 
         //Where invincibility frames get handled
         if (Counter > 0)

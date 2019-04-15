@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-//Brandon Ruigrok
 public class BossHealth : MonoBehaviour
 {
     [SerializeField]
@@ -12,27 +11,28 @@ public class BossHealth : MonoBehaviour
     public BossBehavior bossDeath;
     public Action<int> BossTakingDamage;
     private bool canDie = true;
+    private BossHealthBar bossDeathHp;
+    private float bossScreenHp;
 
     private void Start()
     {
         bossDeath = GameObject.Find("Player").GetComponent<BossBehavior>();
+        bossDeathHp = GameObject.Find("BossHpBackground(Clone)").GetComponent<BossHealthBar>();
     }
-
     public void TakeDamage(int damage)
     {
         Hp -= damage;
-
         if (BossTakingDamage != null)
         {
             BossTakingDamage(Hp);
         }
     }
-
     private void Update()
     {
+        bossScreenHp = bossDeathHp.thisHealthBar;
         if (canDie == true)
         {
-            if (Hp <= 0)
+            if (bossScreenHp <= 0)
             {
                 bossDeath.BossDied();
                 canDie = false;
