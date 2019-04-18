@@ -13,5 +13,8 @@ public class CheckButton : MonoBehaviour, IPointerEnterHandler
         PlayerSideMovement.CanSwipe = false;
 
     }
-
+ 
+     // this.gameObject.GetComponent<Button>().interactable = false;
+       
+     
 }

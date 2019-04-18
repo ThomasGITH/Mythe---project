@@ -10,7 +10,7 @@ public class Soul : MonoBehaviour
 
     public enum Col
     {
-        RED, GREEN, BLUE
+        RED, GREEN, YELLOW
     }
 
     void Start()
@@ -28,9 +28,9 @@ public class Soul : MonoBehaviour
                 case Col.GREEN:
                     col = Color.green;
                     break;
-                case Col.BLUE:
-                    Color blue =  new Vector4(30f, 0f, 255f, 255f);
-                    col = blue;
+                case Col.YELLOW:
+                    Color yellow =  Color.yellow;
+                    col = yellow;
                     break;
             }
             if (transform.childCount > 0)
@@ -39,10 +39,9 @@ public class Soul : MonoBehaviour
                 this.transform.GetComponent<Renderer>().material.color = col;
                 var garret = transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().main;
                 var henry = transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().main;
-
-                henry.startColor = col;
-     
                 garret.startColor = col;
+                henry.startColor = col;
+
 
             }
             else
