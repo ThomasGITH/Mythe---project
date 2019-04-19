@@ -98,7 +98,7 @@ public class ScytheShoot : MonoBehaviour
     public void LeftShoot()
     {
         PlayerSideMovement.CanSwipe = false;
-        if (recharging == false && attackDelay == false && soulAmount != 0)
+        if (recharging == false && attackDelay == false )// test && soulAmount != 0)
         {
             if (playerLane != 0)
             {
@@ -112,8 +112,8 @@ public class ScytheShoot : MonoBehaviour
    public void RightShoot()
     {
         PlayerSideMovement.CanSwipe = false;
-        if (recharging == false && attackDelay == false && soulAmount != 0)
-            {
+        if (recharging == false && attackDelay == false )// test && soulAmount != 0)
+        {
                 if (playerLane != 2)
                 {
                     shootingLane = 1;
