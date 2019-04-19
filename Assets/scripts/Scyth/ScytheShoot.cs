@@ -39,7 +39,7 @@ public class ScytheShoot : MonoBehaviour
         getSouls = player.GetComponent<Health>();
         bulletprefab = Resources.Load("Bullet") as GameObject;
         playerLanes = LanesManager.lanes;
-        animator = GameObject.Find("RUNCYCLE").GetComponent<Animator>();
+        animator = GameObject.Find("player run separate").GetComponent<Animator>();
         
     }
 
