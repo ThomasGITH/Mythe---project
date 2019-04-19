@@ -25,7 +25,7 @@ public class ScytheShoot : MonoBehaviour
     private bool shotLeft = false;
     private bool shotRight = false;
     private Animator animator;
-
+    public Avatar Idle, ALeft, ARight;
 
     private GameObject bulletprefab;
 
@@ -56,7 +56,11 @@ public class ScytheShoot : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E)){
             RightShoot();
         }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            animator.avatar = Idle;
 
+        }
 
         if (recharging == true)
         {
@@ -98,13 +102,15 @@ public class ScytheShoot : MonoBehaviour
     public void LeftShoot()
     {
         PlayerSideMovement.CanSwipe = false;
-        if (recharging == false && attackDelay == false )// test && soulAmount != 0)
+        if (recharging == false && attackDelay == false )//&& soulAmount != 0)
         {
             if (playerLane != 0)
             {
+                animator.avatar = ALeft;
                 shootingLane = -1;
                 attackDelay = true;
                 animator.SetInteger("State", 1);
+
             }
         }
     }
@@ -112,15 +118,17 @@ public class ScytheShoot : MonoBehaviour
    public void RightShoot()
     {
         PlayerSideMovement.CanSwipe = false;
-        if (recharging == false && attackDelay == false )// test && soulAmount != 0)
+        if (recharging == false && attackDelay == false  )//&& soulAmount != 0)
         {
                 if (playerLane != 2)
-                {
-                    shootingLane = 1;
+            {
+                animator.avatar = ARight;
+                shootingLane = 1;
                 attackDelay = true;
-                    animator.SetInteger("State", 2);
+                animator.SetInteger("State", 2);
+
             }
-            }
+        }
     }
 
 }
