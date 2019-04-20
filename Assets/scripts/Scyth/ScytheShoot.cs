@@ -30,7 +30,6 @@ public class ScytheShoot : MonoBehaviour
     private GameObject bulletprefab;
 
     List<Vector3> playerLanes = new List<Vector3>();
-
     void Start()
     {
         player = GameObject.Find("Player");
@@ -56,10 +55,12 @@ public class ScytheShoot : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E)){
             RightShoot();
         }
-        if (Input.GetKeyDown(KeyCode.W))
+      
+       // als de idle false is en de animatie die hij afspeelt hoge is dan (0.8) dan zet hem terug naar idle 
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Player Idle") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.8)
         {
-            animator.avatar = Idle;
-
+            animator.SetInteger("State", 0);
+            animator.avatar = Idle;   
         }
 
         if (recharging == true)
@@ -81,7 +82,6 @@ public class ScytheShoot : MonoBehaviour
             attackDelay = false;
             shooting();
             delayTimer = 0;
-            animator.SetInteger("State", 0);
         }
 
 
