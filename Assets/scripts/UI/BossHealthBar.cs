@@ -39,7 +39,7 @@ public class BossHealthBar : MonoBehaviour
         if (newHealthBar < thisHealthBar)
         {
             takingDamage = true;
-            thisHealthBar -= 10.0f * Time.deltaTime;
+            thisHealthBar -= 100.0f * Time.deltaTime;
         } 
         
         if (newHealthBar == thisHealthBar)

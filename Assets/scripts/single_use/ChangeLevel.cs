@@ -9,7 +9,8 @@ public class ChangeLevel : MonoBehaviour
     private GameObject cam;
     [SerializeField]
     private byte level = 0;
-
+    [SerializeField]
+    private Material skyBox1, skyBox2;
     private void Start()
     {
         list = new GameObject[2];
@@ -25,6 +26,8 @@ public class ChangeLevel : MonoBehaviour
     {
         if (level == 0)
         {
+            RenderSettings.skybox = skyBox2;
+
             list[level].SetActive(false);
             level += 1;
             list[level].SetActive(true);
@@ -32,9 +35,12 @@ public class ChangeLevel : MonoBehaviour
         else
             if (level == 1)
         {
+            RenderSettings.skybox = skyBox1;
+
             list[level].SetActive(false);
             level -= 1;
             list[level].SetActive(true);
+
         }
     }
 }

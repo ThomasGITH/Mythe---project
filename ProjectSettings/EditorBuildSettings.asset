@@ -9,12 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: d501e15c138ae3d44af7c9398a471764
   - enabled: 1
-    path: Assets/Scenes/WaterScene.unity
-    guid: ed9b58972a1c4d24ab5b6add77c035fb
-  - enabled: 1
-    path: Assets/Scenes/MainScene.unity
-    guid: d57587f9d51232e408e41371ffea66f1
-  - enabled: 1
     path: Assets/Scenes/Test Scene/CleanScene.unity
     guid: 5e05a434774a893448d92760ebf91eb2
   m_configObjects: {}

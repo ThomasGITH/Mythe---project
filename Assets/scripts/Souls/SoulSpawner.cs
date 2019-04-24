@@ -130,7 +130,7 @@ public class SoulSpawner : MonoBehaviour
         speed = speed > -0.45f ? speed - 0.0001f : speed;
         RoadMovement.speed = speed;
 
-        print("Soulspeed: " + speed);
+        //print("Soulspeed: " + speed);
         
         if (CurrentTime > 0.75f)
         {

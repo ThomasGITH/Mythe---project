@@ -23,7 +23,7 @@ public class RoadMovement : MonoBehaviour
         Vector3 pos1 = road1.transform.position;
         Vector3 pos2 = road2.transform.position;
 
-        print("Roadspeed: " + speed);
+       // print("Roadspeed: " + speed);
         
         pos1.z = pos1.z <= -PosBridge2_Z ? pos2.z + PosBridge2_Z - P1_true : pos1.z - Mathf.Abs(speed);
         pos2.z = pos2.z <= -PosBridge2_Z ? pos1.z + PosBridge2_Z - P2_true : pos2.z - Mathf.Abs(speed);
