@@ -16,7 +16,7 @@ public class SoulSpawner : MonoBehaviour
 
     void three_in_a_row()
     {
-    
+
 
         Vector3 leftPos = soul.transform.position;
         leftPos.x = LanesManager.lanes[0].x;
@@ -25,27 +25,27 @@ public class SoulSpawner : MonoBehaviour
         left.GetComponent<Soul>().auto_color = false;
         var leftColor1 = left.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().main;
         var leftColor2 = left.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().main;
-        //left.GetComponent<Soul>().auto_position = false;
+        left.GetComponent<Soul>().auto_position = false;
         left.transform.position = leftPos;
         left.gameObject.GetComponent<Soul>().speed = speed;
         left.transform.GetComponent<SpriteRenderer>().color = Color.red;
-        left.transform.GetComponent<Renderer>().material.color = Color.red;
+        // left.transform.GetComponent<Renderer>().material.color = Color.red;
         leftColor1.startColor = Color.red;
         leftColor2.startColor = Color.red;
 
 
         Vector3 centerPos = soul.transform.position;
         centerPos.x = LanesManager.lanes[1].x;
-       // centerPos.x = -10f;
+        // centerPos.x = -10f;
         GameObject center = Instantiate(soul, soul.transform.position, soul.transform.rotation);
         center.GetComponent<Soul>().auto_color = false;
         var centerColor1 = center.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().main;
         var centerColor2 = center.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().main;
-        //center.GetComponent<Soul>().auto_position = false;
+        center.GetComponent<Soul>().auto_position = false;
         center.transform.position = centerPos;
         center.gameObject.GetComponent<Soul>().speed = speed;
         center.transform.GetComponent<SpriteRenderer>().color = Color.green;
-        center.transform.GetComponent<Renderer>().material.color = Color.green;
+        // center.transform.GetComponent<Renderer>().material.color = Color.green;
         centerColor1.startColor = Color.green;
         centerColor2.startColor = Color.green;
 
@@ -57,11 +57,11 @@ public class SoulSpawner : MonoBehaviour
         right.GetComponent<Soul>().auto_color = false;
         var rightColor1 = right.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().main;
         var rightColor2 = right.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().main;
-       // right.GetComponent<Soul>().auto_position = false;
+        right.GetComponent<Soul>().auto_position = false;
         right.transform.position = rightPos;
         right.gameObject.GetComponent<Soul>().speed = speed;
         right.transform.GetComponent<SpriteRenderer>().color = Color.yellow;
-        right.transform.GetComponent<Renderer>().material.color = Color.yellow;
+        //right.transform.GetComponent<Renderer>().material.color = Color.yellow;
         rightColor1.startColor = Color.yellow;
         rightColor2.startColor = Color.yellow;
     }
@@ -77,7 +77,7 @@ public class SoulSpawner : MonoBehaviour
         left.gameObject.GetComponent<Soul>().speed = speed;
 
         Vector3 rightPos = soul.transform.position;
-       // rightPos.x = -8.5f;
+        // rightPos.x = -8.5f;
         rightPos.x = LanesManager.lanes[2].x;
         GameObject right = Instantiate(soul, soul.transform.position, soul.transform.rotation);
         right.GetComponent<Soul>().auto_position = false;
@@ -131,12 +131,12 @@ public class SoulSpawner : MonoBehaviour
         RoadMovement.speed = speed;
 
         //print("Soulspeed: " + speed);
-        
+
         if (CurrentTime > 0.75f)
         {
             CurrentTime = 0;
-       
-            switch(Random.Range(0, 12))
+
+            switch (Random.Range(0, 12))
             {
                 case 1:
                     two_on_each_side();
@@ -157,7 +157,7 @@ public class SoulSpawner : MonoBehaviour
                     two_right();
                     break;
                 default:
-                     random_mess();
+                    random_mess();
                     break;
             }
         }
