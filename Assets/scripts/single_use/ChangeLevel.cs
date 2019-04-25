@@ -31,6 +31,7 @@ public class ChangeLevel : MonoBehaviour
             list[level].SetActive(false);
             level += 1;
             list[level].SetActive(true);
+            Pause.LevelCheck = false;
         }
         else
             if (level == 1)
@@ -40,6 +41,8 @@ public class ChangeLevel : MonoBehaviour
             list[level].SetActive(false);
             level -= 1;
             list[level].SetActive(true);
+            Pause.LevelCheck = true;
+
 
         }
     }

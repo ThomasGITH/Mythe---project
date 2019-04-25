@@ -8,7 +8,7 @@ public class Pause : MonoBehaviour
     //Make sure that the pause screen is a child of the camera, it'll stay fixed to the camera that way.
 
     public bool Stopped = false;
-    public bool LevelCheck = true;
+    public static bool LevelCheck = true;
 
     //public GameObject Opaque;
     public GameObject PauseScreen;      //Pause screen
@@ -32,6 +32,7 @@ public class Pause : MonoBehaviour
         {
             Resumed();
         }
+        
     }
 
     public void Resumed()      //The Resume function
